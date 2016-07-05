@@ -114,7 +114,7 @@ shinyUI(fluidPage(
                         <li>Schmidt, F. L. (1996). <a href='http://www.phil.vt.edu/dmayo/personal_website/Schmidt_StatSigTesting.pdf'>Statistical significance testing and cumulative knowledge in psychology: Implications for training of researchers</a>. Psychological methods, 1(2), 115.</li>
                         <li>Schmidt, Frank L. and Hunter, John E. (2004). <a href='http://gen.lib.rus.ec/book/index.php?md5=D43B07F375C98403D672D186F91C3407'>Methods of meta-analysis: Correcting error and bias in research findings</a>.</li>
                         <li>Nickerson, R. S. (2000). <a href='http://psych.colorado.edu/~willcutt/pdfs/Nickerson_2000.pdf'>Null hypothesis significance testing: a review of an old and continuing controversy</a>. Psychological methods, 5(2), 241.</li>
-                        <li></li>
+                        <li>Gelman, Andrew and Stern, Hal. (2006). <a href='http://www.stat.columbia.edu/~gelman/research/published/signif4.pdf'>The Difference Between 'Significant' and 'Not Significant' is not Itself Statistically Significant</a></li>
                        </ul>
                       "))
       )
