@@ -7,19 +7,18 @@
 
 library(shiny)
 
-# Simulate NHST subgroup fallacy data -------------------------------------
 
-# 
-# #pooled results
-# d_pooled = ldf_to_df(l_samples)
-# 
-# #overall models
-# fit_male_father = glm("outcome ~ father", data = d_pooled, subset = gender == "M", family = binomial)
-# fit_male_mother = glm("outcome ~ mother", data = d_pooled, subset = gender == "M", family = binomial)
-# fit_female_father = glm("outcome ~ father", data = d_pooled, subset = gender == "F", family = binomial)
-# fit_female_mother = glm("outcome ~ mother", data = d_pooled, subset = gender == "F", family = binomial)
-# fit_full = glm("outcome ~ father + mother + gender + gender*father + gender*mother", data = d_pooled, family = binomial)
-# print(tidy(fit_full, conf.int = T))
+# functions ---------------------------------------------------------------
+
+t_df = function(x) {
+  # browser()
+  x_rownames = rownames(x)
+  x_colnames = colnames(x)
+  x2 = x %>% t()
+  rownames(x2) = x_colnames
+  colnames(x2) = x_rownames
+  x2
+}
 
 shinyServer(function(input, output, session) {
   
@@ -264,7 +263,7 @@ shinyServer(function(input, output, session) {
   
   
   output$effect_sizes = renderPlot({
-    
+
     #models
     l_models = reac_l_models()
     
@@ -282,7 +281,7 @@ shinyServer(function(input, output, session) {
         "full_gender_father_interaction" = ms$full %>% summary() %>% extract2("coefficients") %>% extract(5, 1),
         "full_gender_mother_interaction" = ms$full %>% summary() %>% extract2("coefficients") %>% extract(6, 1)
       )
-    }) %>% as.data.frame() %>% t_df() %>% set_rownames(NULL)
+    }) %>% as.data.frame() %>% t_df() %>% set_rownames(NULL) %>% as.data.frame()
 
     
     #long form
